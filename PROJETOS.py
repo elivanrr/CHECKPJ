@@ -1,10 +1,10 @@
 import tkinter
 from tkinter import *
 import webbrowser
-
+from pkg_resources import resource_filename
 app = Tk()
 app.title("CHECK-LIST DE PROJETOS")
-app.geometry("920x400")
+app.geometry("920x800")
 
 label1 = tkinter.Label(master=app, text="ESCOLHA A COORDENAÇÃO E O PROJETO", font="arial 11 bold", fg="white", bg="#006494")
 label1.place(x=300, y=0)
@@ -19,6 +19,9 @@ fr_quadro3.place(x=470, y=50, width=200, height=300)
 
 fr_quadro4 = Frame(app, borderwidth=1, relief="solid")
 fr_quadro4.place(x=680, y=50, width=200, height=300)
+
+fr_quadro5 = Frame(app, borderwidth=1, relief="solid")
+fr_quadro5.place(x=50, y=390, width=830, height=400)
 ############################################################################################
 label2 = tkinter.Label(fr_quadro1, text="CARCD:", font="arial 11 bold", fg="white", bg="#006494")
 label2.place(x=60, y=10)
@@ -62,9 +65,12 @@ btn10.place(x=10, y=60)
 
 btn11 = Button(fr_quadro4, text="GENEXUS", bg="#89CFF0", font="arial 9 bold", command=lambda: webbrowser.open('https://docs.google.com/document/d/1I_6li-R463wz6x77hIIzaX07pNOnnjBNMUFHt0nE76c/edit?usp=sharing'))
 btn11.place(x=10, y=90)
-
 ############################################################################################
-
+img1 = resource_filename(__name__, 'FLUXO.png')
+photo = PhotoImage(file=img1)
+label6 = tkinter.Label(fr_quadro5, image= photo )
+label6.pack()
+###############################################################################################
 app.mainloop()
 
 
